@@ -11,7 +11,8 @@ $colors: (
   "warning": #ffc107,
   "info": #17a2b8,
   "light": #f8f9fa,
-  "dark": #343a40
+  "dark": #343a40,
+  "theme-green" : #00FF00,
 );
 
 // Text color classes
@@ -26,4 +27,10 @@ $colors: (
   .bg-#{$name} {
     background-color: $color;
   }
+}
+
+body{
+  font-family: monospace;
+  background-color: #343a40;
+  color: #00FF00 !important;
 }

@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -7,6 +7,13 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App {
-  protected readonly title = signal('have-you-done-it');
+export class App implements OnInit {
+  private readonly _time = signal(new Date());
+  readonly time = this._time.asReadonly();
+
+  ngOnInit(): void {
+    setInterval(() => {
+      this._time.update((time) => time = new Date());
+    }, 100)
+  }
 }
